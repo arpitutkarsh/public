@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6 BS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Simple Form</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="simpleForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="optional" class="form-label">Optional Field</label>
+                        <input type="text" class="form-control" id="optional" name="optional">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <div id="requiredMessage" class="text-danger mt-3" style="display: none;">
+                    Please fill in all required fields.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("simpleForm").addEventListener("submit", function (event) {
+            var requiredFields = document.querySelectorAll("[required]");
+            var emptyFields = [];
+
+            requiredFields.forEach(function (field) {
+                if (!field.value) {
+                    emptyFields.push(field);
+                }
+            });
+
+            if (emptyFields.length > 0) {
+                event.preventDefault();
+                document.getElementById("requiredMessage").style.display = "block";
+            } else {
+                document.getElementById("requiredMessage").style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

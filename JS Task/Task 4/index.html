@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Get date and time in JavaScript.</title>
+</head>
+<body>
+   <h2>Get date and time using JavaScript.</h2>
+   
+   <button id="dateButton">Show Current Date</button>
+   <div id="dateOutput"></div>
+   
+   <button id="timeButton">Show Current Time</button>
+   <div id="timeOutput"></div>
+
+   <script>
+        let dateButton = document.getElementById("dateButton");
+        let timeButton = document.getElementById("timeButton");
+        let dateOutput = document.getElementById("dateOutput");
+        let timeOutput = document.getElementById("timeOutput");
+
+        dateButton.addEventListener("click", () => {
+            let newDate = new Date();
+            let year = newDate.getFullYear();
+            let month = newDate.getMonth() + 1; // Months are zero-based, so add 1
+            let todaySDate = newDate.getDate();
+            let formattedDate = `${todaySDate}/${month}/${year}`;
+            dateOutput.textContent = "Current Date: " + formattedDate;
+        });
+
+        timeButton.addEventListener("click", () => {
+            let newDate = new Date();
+            let hours = newDate.getHours();
+            let minutes = newDate.getMinutes();
+            let seconds = newDate.getSeconds();
+            let formattedTime = `${hours}:${minutes}:${seconds}`;
+            timeOutput.textContent = "Current Time: " + formattedTime;
+        });
+   </script>
+</body>
+</html>

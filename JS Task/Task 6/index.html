@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 6 JS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="instagram-logo">Instagram</div>
+            <form>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input type="text" class="form-input" placeholder="Username" required>
+                </div>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" class="form-input" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-button">Log In</button>
+                <label class="remember-me"><input type="checkbox"> Remember Me</label>
+                <a class="forgot-password" href="#">Forgot Password?</a>
+            </form>
+        </div>
+        <div class="signup-link">Don't have an account? <a href="#">Sign up here</a></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Username and password are required fields.");
+                return false;
+            }
+
+            // You can add more advanced validation here if needed
+
+            return true; // Submit the form
+        }
+    </script>
+</body>
+</html>
